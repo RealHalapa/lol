@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>You've been trolled :)</title>
+    <style>
+        body {
+            animation: color-change 0.5s linear infinite;
+            transform: rotate(360deg);
+            cursor: wait;
+        }
+
+        @keyframes color-change {
+            0% {
+                background-color: black;
+                color: white;
+            }
+            50% {
+                background-color: white;
+                color: black;
+            }
+            100% {
+                background-color: black;
+                color: white;
+            }
+        }
+    </style>
+    <script>
+        function moveWindow() {
+            window.resize(250, 250);
+            var randomX = Math.floor(Math.random() * window.innerWidth);
+            var randomY = Math.floor(Math.random() * window.innerHeight);
+            window.moveTo(randomX, randomY);
+            setTimeout(moveWindow, 250);
+        }
+        moveWindow();
+
+        window.addEventListener("beforeunload", function() {
+            window.open(window.location.href);
+            window.open(window.location.href);
+        });
+    </script>
+</head>
+<body>
+    <h1>You've been trolled!</h1>
+</body>
+</html>
